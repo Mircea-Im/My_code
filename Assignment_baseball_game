@@ -1,0 +1,29 @@
+# 야구게임 만들기
+import random
+com_num = random.sample(range(1,9),3)
+print(com_num)
+count = 0
+while True :
+    user_num = []
+    user_num1 = int(input('첫번째 숫자를 입력하세요 :'))
+    user_num2 = int(input('두번째 숫자를 입력하세요 :'))
+    user_num3 = int(input('세번째 숫자를 입력하세요 :'))
+    user_num.append(user_num1)
+    user_num.append(user_num2)
+    user_num.append(user_num3)
+    strike = 0
+    ball = 0
+    count += 1
+
+    for i in range(len(com_num)) :
+        for j in range((len(com_num))) :
+            if i == j and com_num[i] == user_num[i] :
+                strike += 1
+            elif i != j and com_num[i] == user_num[j] :
+                    ball += 1
+    if strike == 3 :
+        print('3 스트라이크! 축하드립니다!')
+        print('{} 번만에 정답을 맞추셨습니다. 프로그램 종료!'.format(count))
+        break
+    else :
+        print('{} 스트라이크, {} 볼 입니다.'.format(strike,ball))
