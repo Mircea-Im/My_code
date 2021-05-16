@@ -1,0 +1,51 @@
+# 빙고만들기
+import random
+row = 5
+cal = 5
+my_list = [[0 for i in range(row)]for j in range(cal)]
+# 5 x 5 빈 행렬 만들기 완료!
+
+num_list = []
+for i in range(row) :
+    for j in range(cal) :
+        while True :
+            random_num = random.randint(1,50)
+            if random_num not in num_list :
+                my_list[i][j] = random_num
+                num_list.append(random_num)
+                break
+for x in my_list :
+    print(x)
+while True :
+    bingo = 0
+    input_num = int(input('숫자 입력 : '))
+    for i in range(row) :
+        for j in range(cal) :
+            if input_num == my_list[i][j] :
+                my_list[i][j] = 0
+
+    c1 = 0 # 역슬레쉬가 다 더해진 값
+    c2 = 0 # 슬레쉬가 다 더해진 값
+    for i in range(row) :
+        sum_x = 0
+        sum_y = 0
+        for j in range(cal) :
+            sum_x += my_list[i][j] # 가로 값 더하기
+            sum_y += my_list[j][i] # 세로 값 더하기
+
+        if sum_x == 0 :
+            bingo += 1
+        if sum_y == 0 :
+            bingo += 1
+        c1 += my_list[i][i]
+        c2 += my_list[row-i-1][i]
+
+    if c1 == 0 :
+        bingo += 1
+    if c2 == 0 :
+        bingo += 1
+    # print(my_list)
+    # print(bingo)
+    if bingo > 2 :
+        print('빙고!')
+        break
