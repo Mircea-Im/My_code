@@ -1,0 +1,43 @@
+예제 2) 더치페이
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace if02
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // 더치페이
+            // 사용자에게 총 금액과 총 인원을 입력받는다.
+
+            // 금액과 인원이 딱 나누어진다면 각각 내야할 금액 출력
+            // 만약 딱 나눠떨어지지 않으면 10의자리에서 버림을 진행
+            // ex) 5000원 3명 -> 1600원
+            // n-1명은 1600원 , 1명은 5000원 - 1600*(n-1)
+
+            Console.Write("총 금액을 입력하세요 : ");
+            int total_cost = int.Parse(Console.ReadLine());
+            Console.Write("총 인원을 입력하세요 : ");
+            int people = int.Parse(Console.ReadLine());
+            int dutch = total_cost / people;
+
+            if ((total_cost % people) != 0)
+            {
+                int final_dutch = dutch - (dutch % 100);
+                int bully_dutch = total_cost - (final_dutch * (people - 1));
+                Console.WriteLine("더치페이 금액 : " + final_dutch + " 원");
+                Console.WriteLine("왕따 1명 금액 : " + bully_dutch + " 원");
+                
+            }
+            else 
+            {
+                Console.WriteLine("더치페이 금액 : " + dutch + " 원");
+            }
+        }
+    }
+}
