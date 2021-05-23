@@ -1,0 +1,46 @@
+예제 1 ) - 세 과목 점수 평균 구하기
+
+// 사용자에게 국어, 수학, 영어 점수를 입력받는다.
+// 성적의 평균을 출력한다.
+
+// 출력 형태
+// 국어 점수 입력 : (입력받기)
+// 수학 점수 입력 : (입력받기)
+// 영어 점수 입력 : (입력받기)
+// 3과목의 평균 : 
+// 조건 : 평균이 실수이면 실수로 나올 수 있도록 한다.
+
+-----------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Operator03
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // 사용자에게 국어, 수학, 영어 점수를 입력받는다.
+            // 성적의 평균을 출력한다.
+
+            // 출력 형태
+            // 국어 점수 입력 : (입력받기)
+            // 수학 점수 입력 : (입력받기)
+            // 영어 점수 입력 : (입력받기)
+            // 3과목의 평균 : 
+            // 조건 : 평균이 실수이면 실수로 나올 수 있도록 한다.
+            Console.Write("국어 점수를 입력하세요 : ");
+            int kor = int.Parse(Console.ReadLine());
+            Console.Write("수학 점수를 입력하세요 : ");
+            int math = int.Parse(Console.ReadLine());
+            Console.Write("영어 점수를 입력하세요 : ");
+            int eng = int.Parse(Console.ReadLine());
+            double avg = (kor + math + eng) / 3.0;
+            Console.WriteLine("3과목의 평균 : " + avg + " 점");
+
+        }
+    }
+}
